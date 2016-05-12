@@ -1,0 +1,27 @@
+
+
+
+
+
+<div class="side-menu col-md-2">
+    <div class="btn-group" uib-dropdown dropdown-append-to-body>
+        <button ng-click="displaycompany()" id="btn-append-to-body" type="button" class="btn btn-primary" uib-dropdown-toggle >
+            Entreprises <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="btn-append-to-body">
+            <li ng-repeat="item in usertab track by $index" ng-click="displayuser(item.id)" ui-sref="app.organization({id:item.id})">{{item.name}}</li>
+        </ul>
+
+    </div>
+    <ul ng-repeat="item in customarray track by $index" ng-if="item[0].username" >
+        <div class="single-user" ui-sref="app.usersingle({id:item[0].id,iterate:1})">
+            <li >{{item[0].username}}</li>
+            <li>total: {{item[0].nbtickets}} maintenance: {{item[0].tickmaintenance}} bug: {{item[0].tickbug}} Assistance: {{item[0].tickassistance}}</li>
+        </div>
+    </ul>
+    </div>
+<div ui-view></div>
+
+
+
+

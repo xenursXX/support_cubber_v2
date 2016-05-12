@@ -1,0 +1,36 @@
+<h1 class="text-center">Ticket de {{myname}}</h1>
+
+<h2 class="text-center">{{infoticket.subject}}</h2>
+<div class="col-md-10 row text-center">
+<div class="class_{{infoticket.status}} ">{{infoticket.status}}</div>
+    <h3>{{infoticket.tags[0]}}</h3>
+</div>
+
+
+
+<div ng-repeat="item in ticketcontent track by $index" >
+
+
+    <div class="container row col-md-offset-1 col-md-8" ng-class="{true: 'agent', false: 'collab'}[item.author_id == 591119252 || item.author_id == 619780882 || item.author_id ==  653783901 || item.author_id == 645192392 || item.author_id == 513340771 || item.author_id == 513345171]">
+
+
+     <div ng-class="mybind"   ng-bind-html="item.html_body"></div>
+        <div ng-switch="item.author_id">
+            <div ng-switch-when="591119252">Agent: Mystique</div>
+            <div ng-switch-when="619780882">Agent: Batman </div>
+            <div ng-switch-when="653783901">Agent: Superman </div>
+            <div ng-switch-when="645192392">Agent:Iron Man </div>
+            <div ng-switch-when="513340771">Agent:Green Hornet </div>
+            <div ng-switch-when="513345171">Agent:Tornade </div>
+            <div ng-Switch-Default>Collaborateur: {{myname}}</div>
+        </div>
+
+    </div>
+
+
+</div>
+
+<div class="col-md-10">
+    <span id="prev" class="glyphicon glyphicon-chevron-left" aria-hidden=true ng-click="previous()"></span>
+    <span id="next" class="glyphicon glyphicon-chevron-right" aria-hidden=true ng-click="next()"></span>
+</div>

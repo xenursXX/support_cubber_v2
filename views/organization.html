@@ -1,0 +1,33 @@
+
+    <div class="col-md-10" ng-show="companyview">
+        <div id="container"></div>
+        <div class="col-md-5">
+            <h1 class="text-center">Classement</h1>
+
+
+            <ul>
+                <li class="row"> <div class="col-md-2 classement text-center">Class.</div> <div class="name col-md-4 text-center">Noms</div>  <div class="col-md-2 total text-center">Total</div><div class="col-md-2 maintenance text-center">Maintenance</div><div class="col-md-2 assistance text-center">Assistance</div></li>
+            </ul>
+            <ul ng-repeat="item in customarray | orderBy:'-nbtickets' track by $index" >
+
+                <li ui-sref="app.usersingle({id:item[0].id,iterate:1})" class="row organization"> <div class="col-md-2 classement text-center">{{$index+1}}</div> <div class="name col-md-4 text-center">{{item[0].username}}</div>  <div class="col-md-2 total text-center">{{item[0].nbtickets}}</div><div class="col-md-2 maintenance text-center">{{item[0].tickmaintenance}}</div><div class="col-md-2 assistance text-center">{{item[0].tickassistance}}</div></li>
+            </ul>
+        </div>
+        <h2 class="text-center">Derniers tickets</h2>
+        <div class="col-md-5">
+            <ul>
+                <li class="row"><div class="col-md-2 date text-center">Date</div> <div class="name col-md-3 text-center">Noms</div>  <div class="col-md-5 Titre text-center">Titre</div><div class="col-md-2 statut text-center">Statut</div></li>
+            </ul>
+
+            <ul ng-repeat="item in test  | orderBy:'-date'| limitTo :10 track by $index">
+
+                    <li  ui-sref="app.usersingle({id:item.id,iterate:1})" class="row organization"><div class="col-md-2 date text-center">{{item.date | date}}</div><div class="col-md-3 date text-center"> {{item.name}}</div> <div class="col-md-5 date text-center">{{item.titre}}</div> <div class="col-md-2 date text-center">{{item.status}}</div></li>
+            </ul>
+
+        </div>
+    </div>
+
+
+
+
+

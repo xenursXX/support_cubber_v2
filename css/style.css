@@ -1,0 +1,104 @@
+.side-menu{
+    background-color: #6985ff;
+    height:100em;
+
+
+}
+
+.header{
+    background-color:dodgerblue;
+}
+
+#clickorga:hover{
+    background-color: #eeeeee;
+}
+li{
+    text-decoration: none;
+    list-style-type: none;
+    cursor: pointer;
+
+}
+.organization:hover{
+    background-color: #eeeeee;
+}
+.single-user{
+    border:solid 2px red;
+    padding:10px;
+    border-radius:10px;
+}
+
+.ticketlist:hover{
+    background-color: #eeeeee;
+    cursor: pointer;
+}
+.class_closed{
+    color:white;
+    padding:5px;
+    border-radius: 10px;
+    text-align: center;
+    display: inline-block;
+    background-color:#C6C6C6;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.class_open{
+    color:white;
+    padding:5px;
+    border-radius: 10px;
+    text-align: center;
+    display: inline-block;
+    background-color:#64D4F9;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.class_solved{
+    color:white;
+    padding:5px;
+    border-radius: 10px;
+    text-align: center;
+    display: inline-block;
+    background-color:#33C9A9;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.class_pending{
+    color:white;
+    padding:5px;
+    border-radius: 10px;
+    text-align: center;
+    display: inline-block;
+    background-color:#FEC800;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+.class_new{
+    color:white;
+    padding:5px;
+    border-radius: 10px;
+    text-align: center;
+    display: inline-block;
+    background-color:#4DB8A1;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+.agent{
+    border: solid 2px #FEC800;
+    border-radius: 15px;
+    padding:20px;
+    margin-bottom: 20px;
+
+}
+.collab{
+    border: solid 2px #725CA4;
+    border-radius: 15px;
+    padding:20px;
+    margin-bottom: 20px;
+
+}
+
+.list{
+   margin-top: 10px;
+}
