@@ -1,0 +1,24 @@
+<div ui-view></div>
+
+
+
+
+<div class="container-fluid home">
+
+    <div class="init">
+    <img class="mylogo" src="http://localhost:8888/support_cubber_v2/img/logo-support.png" alt="">
+
+
+
+        <div  id="dropOrga" class="btn-group col-md-offset-1 row" uib-dropdown dropdown-append-to-body >
+            <button ng-click="displaycompany()" id="btn-append-to-body" type="button" class="btn btn-primary" uib-dropdown-toggle >
+                {{organame}} <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="btn-append-to-body">
+                <li ng-repeat="item in usertab track by $index" ng-click="displayuser(item.id)" ui-sref="app.organization({id:item.id})" class="dropdownName">{{item.name}}</li>
+            </ul>
+        </div>
+    </div>
+
+
+</div>

@@ -1,8 +1,9 @@
 angular.module('starter.services', [])
 
-    .factory('dropdown', ['$http','$q', function ($http,$q){
+    .factory('dropdown', ['$http','$q', function ($http,$q,$scope){
         var connectingdropdown = {};
         connectingdropdown.send = function(token){
+            //$scope.loading = true;
             var deferred = $q.defer();
             $http({
                 method: 'GET',
@@ -172,6 +173,29 @@ angular.module('starter.services', [])
             $http({
                 method: 'GET',
                 url: "https://cubber.zendesk.com/api/v2/tickets/"+ticketid+".json",
+                dataType: 'json',
+                headers: {'Content-Type': 'application/json',
+                    'Authorization': 'Bearer '+token},
+
+            })
+                .success(function(data){
+                    deferred.resolve(data);
+
+
+                });
+            return deferred.promise;
+        };
+        return connectingdropdown;
+
+    }])
+
+    .factory('ticketOrga', ['$http','$q', function ($http,$q){
+        var connectingdropdown = {};
+        connectingdropdown.send = function(token){
+            var deferred = $q.defer();
+            $http({
+                method: 'GET',
+                url: "https://cubber.zendesk.com/api/v2/organizations/37520251/tickets.json",
                 dataType: 'json',
                 headers: {'Content-Type': 'application/json',
                     'Authorization': 'Bearer '+token},

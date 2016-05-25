@@ -1,25 +1,32 @@
 
 
 
-
-
-<div class="side-menu col-md-2">
-    <div class="btn-group" uib-dropdown dropdown-append-to-body>
+<div class="col-md-12 presHeader container-fluid">
+    <img class="logo" src="http://localhost:8888/support_cubber_v2/img/logo.png" ui-sref="index"/>
+    <div  id="dropOrga" class="btn-group col-md-offset-1 row" uib-dropdown dropdown-append-to-body >
         <button ng-click="displaycompany()" id="btn-append-to-body" type="button" class="btn btn-primary" uib-dropdown-toggle >
-            Entreprises <span class="caret"></span>
+            {{organame}} <span class="caret"></span>
         </button>
         <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="btn-append-to-body">
-            <li ng-repeat="item in usertab track by $index" ng-click="displayuser(item.id)" ui-sref="app.organization({id:item.id})">{{item.name}}</li>
+            <li ng-repeat="item in usertab track by $index" ng-click="displayuser(item.id)" ui-sref="app.organization({id:item.id})" class="dropdownName">{{item.name}}</li>
         </ul>
-
     </div>
-    <ul ng-repeat="item in customarray track by $index" ng-if="item[0].username" >
-        <div class="single-user" ui-sref="app.usersingle({id:item[0].id,iterate:1})">
-            <li >{{item[0].username}}</li>
-            <li>total: {{item[0].nbtickets}} maintenance: {{item[0].tickmaintenance}} bug: {{item[0].tickbug}} Assistance: {{item[0].tickassistance}}</li>
+</div>
+
+<div id="loader" ng-show="loading"><span us-spinner="{radius:30, width:8, length: 10}"></span></div>
+<div class="side-menu col-md-2" ng-show="customarray" ng-hide="cache">
+    <input class="searching form-control" type="text" ng-model="searchBox">
+    <div class="col-md-12">
+    <ul ng-repeat="item in customarray | orderBy:item[0].username:true |filter: searchBox track by $index" ng-if="item[0].username" >
+        <div class="single-user" ui-sref-active="activeState" ui-sref="app.usersingle({id:item[0].id,iterate:1})">
+            <!--<div class="color" ng-class="{green: (item[0].nbtickets)<=50,red: (item[0].nbtickets)>=70,orange: (item[0].nbtickets)>=51 && (item[0].nbtickets)<=69}"></div>-->
+            <li class="username">{{item[0].username}}</li>
+            <li class="userTicket">total: {{item[0].nbtickets}} M: {{item[0].tickmaintenance}}  A: {{item[0].tickassistance}}</li>
         </div>
     </ul>
-    </div>
+</div>
+
+</div>
 <div ui-view></div>
 
 
